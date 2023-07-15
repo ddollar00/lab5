@@ -110,7 +110,7 @@ function viewEmployeeList() {
     } else {
         const selectedEmp = allEmployees.find(emp => emp.id === selectedEmployee);
         if (selectedEmp) {
-            viewTimesheets(selectedEmp);
+            viewOneTimesheets(selectedEmp);
         } else {
             console.log('Invalid employee ID. Please try again.');
             viewEmployeeList();
@@ -134,6 +134,25 @@ function viewTimesheets() {
     prompt('Press any key to go back.');
     managerMenu();
 }
+
+function viewOneTimesheets(selemp) {
+    const timesheetsData = JSON.parse(fs.readFileSync(timesheetsFile, 'utf8'));
+    const employeesData = JSON.parse(fs.readFileSync(employeesFile, 'utf8'));
+
+    for (const employeeId in timesheetsData) {
+        if (employeeId == selemp.id) {
+            const employee = employeesData.employees[employeeId];
+            const timesheets = timesheetsData[employeeId];
+            console.log(`Timesheets for ${employee.name}:`);
+            console.table(timesheets);
+            console.log('-----------------------------------');
+        }
+    }
+
+    prompt('Press any key to go back.');
+    managerMenu();
+}
+
 
 function clockIn(employee) {
     const currentTime = new Date().toLocaleTimeString();
