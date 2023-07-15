@@ -1,0 +1,26 @@
+{
+    "employees": {
+        "EMP001": {
+            "id": "EMP001",
+            "name": "John Doe",
+            "type": "employee"
+        },
+        "EMP002": {
+            "id": "EMP002",
+            "name": "Jane Smith",
+            "type": "employee"
+        }
+    },
+    "managers": {
+        "MGR001": {
+            "id": "MGR001",
+            "name": "Leonardo H",
+            "type": "manager"
+        },
+        "MGR002": {
+            "id": "MGR002",
+            "name": "Axel B",
+            "type": "manager"
+        }
+    }
+}
